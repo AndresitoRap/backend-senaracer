@@ -19,7 +19,8 @@
       "type": "string"
     },
     "identification": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "unique": true
     },
     "password": {
       "type": "email"

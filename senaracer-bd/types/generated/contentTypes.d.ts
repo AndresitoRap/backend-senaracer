@@ -414,7 +414,7 @@ export interface ApiRunnerRunner extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     lastname: Attribute.String;
-    identification: Attribute.BigInteger;
+    identification: Attribute.BigInteger & Attribute.Unique;
     password: Attribute.Email;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
