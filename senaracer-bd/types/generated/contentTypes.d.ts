@@ -378,9 +378,9 @@ export interface ApiAdminAdmin extends Schema.CollectionType {
       Attribute.Required &
       Attribute.Unique;
     password: Attribute.String & Attribute.Required;
-    email: Attribute.Email;
     name: Attribute.String;
     lastname: Attribute.String;
+    email: Attribute.Email;
     cellphone: Attribute.BigInteger;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

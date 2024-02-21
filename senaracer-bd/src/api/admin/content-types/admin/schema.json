@@ -21,14 +21,14 @@
       "type": "string",
       "required": true
     },
-    "email": {
-      "type": "email"
-    },
     "name": {
       "type": "string"
     },
     "lastname": {
       "type": "string"
+    },
+    "email": {
+      "type": "email"
     },
     "cellphone": {
       "type": "biginteger"
