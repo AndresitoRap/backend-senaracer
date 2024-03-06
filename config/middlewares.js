@@ -6,7 +6,7 @@ module.exports = [
     name: 'strapi::cors', //Securtiy middlewares
     config: {
       enable: true,
-      origin: ['http://localhost:5270', 'http://127.0.0.1:5270', 'http://localhost:1337', 'http://127.0.0.1:1337' ],
+      origin: ['http://localhost:5270', 'https://senaracerweb.web.app/', 'http://localhost:1337', 'https://backend-strapi-senaracer.onrender.com/' ],
       headers: '*',
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
       preflightContinue: true,
