@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stations",
+  "info": {
+    "singularName": "station",
+    "pluralName": "stations",
+    "displayName": "Station"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "time1": {
+      "type": "float"
+    },
+    "score1": {
+      "type": "biginteger"
+    },
+    "time2": {
+      "type": "float"
+    },
+    "score2": {
+      "type": "biginteger"
+    },
+    "time3": {
+      "type": "float"
+    },
+    "score3": {
+      "type": "biginteger"
+    },
+    "time4": {
+      "type": "float"
+    },
+    "score4": {
+      "type": "biginteger"
+    },
+    "runner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::runner.runner",
+      "mappedBy": "station"
+    }
+  }
+}

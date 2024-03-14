@@ -416,6 +416,11 @@ export interface ApiRunnerRunner extends Schema.CollectionType {
     lastname: Attribute.String;
     identification: Attribute.BigInteger & Attribute.Unique;
     password: Attribute.Email;
+    station: Attribute.Relation<
+      'api::runner.runner',
+      'oneToOne',
+      'api::station.station'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -427,6 +432,48 @@ export interface ApiRunnerRunner extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::runner.runner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStationStation extends Schema.CollectionType {
+  collectionName: 'stations';
+  info: {
+    singularName: 'station';
+    pluralName: 'stations';
+    displayName: 'Station';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    time1: Attribute.Float;
+    score1: Attribute.BigInteger;
+    time2: Attribute.Float;
+    score2: Attribute.BigInteger;
+    time3: Attribute.Float;
+    score3: Attribute.BigInteger;
+    time4: Attribute.Float;
+    score4: Attribute.BigInteger;
+    runner: Attribute.Relation<
+      'api::station.station',
+      'oneToOne',
+      'api::runner.runner'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::station.station',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::station.station',
       'oneToOne',
       'admin::user'
     > &
@@ -866,6 +913,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::admin.admin': ApiAdminAdmin;
       'api::runner.runner': ApiRunnerRunner;
+      'api::station.station': ApiStationStation;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

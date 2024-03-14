@@ -24,6 +24,12 @@
     },
     "password": {
       "type": "email"
+    },
+    "station": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::station.station",
+      "inversedBy": "runner"
     }
   }
 }
