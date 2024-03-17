@@ -23,12 +23,20 @@
       "unique": true
     },
     "password": {
-      "type": "email"
+      "type": "email",
+      "required": false,
+      "unique": true
     },
-    "station": {
+    "score": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::station.station",
+      "target": "api::score.score",
+      "inversedBy": "runner"
+    },
+    "tiempo": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tiempo.tiempo",
       "inversedBy": "runner"
     }
   }

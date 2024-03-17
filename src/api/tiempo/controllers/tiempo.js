@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * station controller
+ * tiempo controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::station.station');
+module.exports = createCoreController('api::tiempo.tiempo');

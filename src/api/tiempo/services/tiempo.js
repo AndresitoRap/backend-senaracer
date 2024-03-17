@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * station service
+ * tiempo service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::station.station');
+module.exports = createCoreService('api::tiempo.tiempo');

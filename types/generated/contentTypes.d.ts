@@ -868,11 +868,16 @@ export interface ApiRunnerRunner extends Schema.CollectionType {
     name: Attribute.String;
     lastname: Attribute.String;
     identification: Attribute.BigInteger & Attribute.Unique;
-    password: Attribute.Email;
-    station: Attribute.Relation<
+    password: Attribute.Email & Attribute.Unique;
+    score: Attribute.Relation<
       'api::runner.runner',
       'oneToOne',
-      'api::station.station'
+      'api::score.score'
+    >;
+    tiempo: Attribute.Relation<
+      'api::runner.runner',
+      'oneToOne',
+      'api::tiempo.tiempo'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -892,27 +897,23 @@ export interface ApiRunnerRunner extends Schema.CollectionType {
   };
 }
 
-export interface ApiStationStation extends Schema.CollectionType {
-  collectionName: 'stations';
+export interface ApiScoreScore extends Schema.CollectionType {
+  collectionName: 'scores';
   info: {
-    singularName: 'station';
-    pluralName: 'stations';
-    displayName: 'Station';
+    singularName: 'score';
+    pluralName: 'scores';
+    displayName: 'Score';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    time1: Attribute.Float;
     score1: Attribute.BigInteger;
-    time2: Attribute.Float;
     score2: Attribute.BigInteger;
-    time3: Attribute.Float;
     score3: Attribute.BigInteger;
-    time4: Attribute.Float;
     score4: Attribute.BigInteger;
     runner: Attribute.Relation<
-      'api::station.station',
+      'api::score.score',
       'oneToOne',
       'api::runner.runner'
     >;
@@ -920,13 +921,51 @@ export interface ApiStationStation extends Schema.CollectionType {
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::station.station',
+      'api::score.score',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::station.station',
+      'api::score.score',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTiempoTiempo extends Schema.CollectionType {
+  collectionName: 'tiempos';
+  info: {
+    singularName: 'tiempo';
+    pluralName: 'tiempos';
+    displayName: 'tiempo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    time1: Attribute.Float;
+    time2: Attribute.Float;
+    time3: Attribute.Float;
+    time4: Attribute.Float;
+    runner: Attribute.Relation<
+      'api::tiempo.tiempo',
+      'oneToOne',
+      'api::runner.runner'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tiempo.tiempo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tiempo.tiempo',
       'oneToOne',
       'admin::user'
     > &
@@ -955,7 +994,8 @@ declare module '@strapi/types' {
       'api::admin.admin': ApiAdminAdmin;
       'api::history.history': ApiHistoryHistory;
       'api::runner.runner': ApiRunnerRunner;
-      'api::station.station': ApiStationStation;
+      'api::score.score': ApiScoreScore;
+      'api::tiempo.tiempo': ApiTiempoTiempo;
     }
   }
 }

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "scores",
+  "info": {
+    "singularName": "score",
+    "pluralName": "scores",
+    "displayName": "Score"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "score1": {
+      "type": "biginteger"
+    },
+    "score2": {
+      "type": "biginteger"
+    },
+    "score3": {
+      "type": "biginteger"
+    },
+    "score4": {
+      "type": "biginteger"
+    },
+    "runner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::runner.runner",
+      "mappedBy": "score"
+    }
+  }
+}

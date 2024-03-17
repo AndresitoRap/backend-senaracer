@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * station router
+ * tiempo router
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::station.station');
+module.exports = createCoreRouter('api::tiempo.tiempo');
