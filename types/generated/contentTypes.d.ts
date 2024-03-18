@@ -903,15 +903,16 @@ export interface ApiScoreScore extends Schema.CollectionType {
     singularName: 'score';
     pluralName: 'scores';
     displayName: 'Score';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    score1: Attribute.BigInteger;
-    score2: Attribute.BigInteger;
-    score3: Attribute.BigInteger;
-    score4: Attribute.BigInteger;
+    score1: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    score2: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    score3: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    score4: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
     runner: Attribute.Relation<
       'api::score.score',
       'oneToOne',
@@ -941,15 +942,16 @@ export interface ApiTiempoTiempo extends Schema.CollectionType {
     singularName: 'tiempo';
     pluralName: 'tiempos';
     displayName: 'tiempo';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    time1: Attribute.Float;
-    time2: Attribute.Float;
-    time3: Attribute.Float;
-    time4: Attribute.Float;
+    time1: Attribute.Float & Attribute.DefaultTo<0>;
+    time2: Attribute.Float & Attribute.DefaultTo<0>;
+    time3: Attribute.Float & Attribute.DefaultTo<0>;
+    time4: Attribute.Float & Attribute.DefaultTo<0>;
     runner: Attribute.Relation<
       'api::tiempo.tiempo',
       'oneToOne',

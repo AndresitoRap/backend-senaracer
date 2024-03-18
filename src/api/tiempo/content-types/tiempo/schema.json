@@ -4,7 +4,8 @@
   "info": {
     "singularName": "tiempo",
     "pluralName": "tiempos",
-    "displayName": "tiempo"
+    "displayName": "tiempo",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,16 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "time1": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     },
     "time2": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     },
     "time3": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     },
     "time4": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     },
     "runner": {
       "type": "relation",
