@@ -31,13 +31,19 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::score.score",
-      "inversedBy": "runner"
+      "inversedBy": "runner",
+      "pluginOptions": {
+        "cascade": true  
+      }
     },
     "tiempo": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tiempo.tiempo",
-      "inversedBy": "runner"
+      "inversedBy": "runner",
+      "pluginOptions": {
+        "cascade": true  
+      }
     }
   }
 }
