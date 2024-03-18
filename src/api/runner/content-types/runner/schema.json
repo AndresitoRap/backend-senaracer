@@ -38,8 +38,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tiempo.tiempo",
-      "inversedBy": "runner",
-      "cascade": true
+      "inversedBy": "runner"
     }
   }
 }
