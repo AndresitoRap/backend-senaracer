@@ -362,6 +362,197 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiAdminAdmin extends Schema.CollectionType {
+  collectionName: 'admins';
+  info: {
+    singularName: 'admin';
+    pluralName: 'admins';
+    displayName: 'Admin';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    identification: Attribute.BigInteger &
+      Attribute.Required &
+      Attribute.Unique;
+    password: Attribute.String & Attribute.Required;
+    name: Attribute.String;
+    lastname: Attribute.String;
+    email: Attribute.Email;
+    cellphone: Attribute.BigInteger;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::admin.admin',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::admin.admin',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHistoryHistory extends Schema.CollectionType {
+  collectionName: 'histories';
+  info: {
+    singularName: 'history';
+    pluralName: 'histories';
+    displayName: 'history';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    identification: Attribute.BigInteger;
+    admin: Attribute.String;
+    accion: Attribute.String;
+    hora: Attribute.DateTime;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::history.history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::history.history',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRunnerRunner extends Schema.CollectionType {
+  collectionName: 'runners';
+  info: {
+    singularName: 'runner';
+    pluralName: 'runners';
+    displayName: 'Runner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    lastname: Attribute.String;
+    identification: Attribute.BigInteger & Attribute.Unique;
+    password: Attribute.Email & Attribute.Unique;
+    score: Attribute.Relation<
+      'api::runner.runner',
+      'oneToOne',
+      'api::score.score'
+    >;
+    tiempo: Attribute.Relation<
+      'api::runner.runner',
+      'oneToOne',
+      'api::tiempo.tiempo'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::runner.runner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::runner.runner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiScoreScore extends Schema.CollectionType {
+  collectionName: 'scores';
+  info: {
+    singularName: 'score';
+    pluralName: 'scores';
+    displayName: 'Score';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    score1: Attribute.BigInteger;
+    score2: Attribute.BigInteger;
+    score3: Attribute.BigInteger;
+    score4: Attribute.BigInteger;
+    runner: Attribute.Relation<
+      'api::score.score',
+      'oneToOne',
+      'api::runner.runner'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::score.score',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::score.score',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTiempoTiempo extends Schema.CollectionType {
+  collectionName: 'tiempos';
+  info: {
+    singularName: 'tiempo';
+    pluralName: 'tiempos';
+    displayName: 'tiempo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    time1: Attribute.Float;
+    time2: Attribute.Float;
+    time3: Attribute.Float;
+    time4: Attribute.Float;
+    runner: Attribute.Relation<
+      'api::tiempo.tiempo',
+      'oneToOne',
+      'api::runner.runner'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tiempo.tiempo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tiempo.tiempo',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -782,197 +973,6 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
-export interface ApiAdminAdmin extends Schema.CollectionType {
-  collectionName: 'admins';
-  info: {
-    singularName: 'admin';
-    pluralName: 'admins';
-    displayName: 'Admin';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    identification: Attribute.BigInteger &
-      Attribute.Required &
-      Attribute.Unique;
-    password: Attribute.String & Attribute.Required;
-    name: Attribute.String;
-    lastname: Attribute.String;
-    email: Attribute.Email;
-    cellphone: Attribute.BigInteger;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::admin.admin',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::admin.admin',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHistoryHistory extends Schema.CollectionType {
-  collectionName: 'histories';
-  info: {
-    singularName: 'history';
-    pluralName: 'histories';
-    displayName: 'history';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    identification: Attribute.BigInteger;
-    admin: Attribute.String;
-    accion: Attribute.String;
-    hora: Attribute.DateTime;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::history.history',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::history.history',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiRunnerRunner extends Schema.CollectionType {
-  collectionName: 'runners';
-  info: {
-    singularName: 'runner';
-    pluralName: 'runners';
-    displayName: 'Runner';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    name: Attribute.String;
-    lastname: Attribute.String;
-    identification: Attribute.BigInteger & Attribute.Unique;
-    password: Attribute.Email & Attribute.Unique;
-    score: Attribute.Relation<
-      'api::runner.runner',
-      'oneToOne',
-      'api::score.score'
-    >;
-    tiempo: Attribute.Relation<
-      'api::runner.runner',
-      'oneToOne',
-      'api::tiempo.tiempo'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::runner.runner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::runner.runner',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiScoreScore extends Schema.CollectionType {
-  collectionName: 'scores';
-  info: {
-    singularName: 'score';
-    pluralName: 'scores';
-    displayName: 'Score';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    score1: Attribute.BigInteger;
-    score2: Attribute.BigInteger;
-    score3: Attribute.BigInteger;
-    score4: Attribute.BigInteger;
-    runner: Attribute.Relation<
-      'api::score.score',
-      'oneToOne',
-      'api::runner.runner'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::score.score',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::score.score',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiTiempoTiempo extends Schema.CollectionType {
-  collectionName: 'tiempos';
-  info: {
-    singularName: 'tiempo';
-    pluralName: 'tiempos';
-    displayName: 'tiempo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    time1: Attribute.Float;
-    time2: Attribute.Float;
-    time3: Attribute.Float;
-    time4: Attribute.Float;
-    runner: Attribute.Relation<
-      'api::tiempo.tiempo',
-      'oneToOne',
-      'api::runner.runner'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::tiempo.tiempo',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::tiempo.tiempo',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -983,6 +983,11 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::admin.admin': ApiAdminAdmin;
+      'api::history.history': ApiHistoryHistory;
+      'api::runner.runner': ApiRunnerRunner;
+      'api::score.score': ApiScoreScore;
+      'api::tiempo.tiempo': ApiTiempoTiempo;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -991,11 +996,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
-      'api::admin.admin': ApiAdminAdmin;
-      'api::history.history': ApiHistoryHistory;
-      'api::runner.runner': ApiRunnerRunner;
-      'api::score.score': ApiScoreScore;
-      'api::tiempo.tiempo': ApiTiempoTiempo;
     }
   }
 }

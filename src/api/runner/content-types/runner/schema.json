@@ -32,18 +32,14 @@
       "relation": "oneToOne",
       "target": "api::score.score",
       "inversedBy": "runner",
-      "pluginOptions": {
-        "cascade": true  
-      }
+      "cascade": true
     },
     "tiempo": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tiempo.tiempo",
       "inversedBy": "runner",
-      "pluginOptions": {
-        "cascade": true  
-      }
+      "cascade": true
     }
   }
 }

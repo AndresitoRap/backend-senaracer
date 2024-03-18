@@ -27,7 +27,7 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::runner.runner",
-      "mappedBy": "score"
+      "inversedBy": "score"
     }
   }
 }
