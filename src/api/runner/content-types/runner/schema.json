@@ -27,19 +27,17 @@
       "required": false,
       "unique": true
     },
-    "score": {
+    "scores": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::score.score",
-      "mappedBy": "runner",
-      "cascade": true
+      "mappedBy": "runner"
     },
-    "tiempo": {
+    "tiempos": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::tiempo.tiempo",
-      "mappedBy": "runner",
-      "cascade": true
+      "mappedBy": "runner"
     }
   }
 }

@@ -869,14 +869,14 @@ export interface ApiRunnerRunner extends Schema.CollectionType {
     lastname: Attribute.String;
     identification: Attribute.BigInteger & Attribute.Unique;
     password: Attribute.Email & Attribute.Unique;
-    score: Attribute.Relation<
+    scores: Attribute.Relation<
       'api::runner.runner',
-      'oneToOne',
+      'oneToMany',
       'api::score.score'
     >;
-    tiempo: Attribute.Relation<
+    tiempos: Attribute.Relation<
       'api::runner.runner',
-      'oneToOne',
+      'oneToMany',
       'api::tiempo.tiempo'
     >;
     createdAt: Attribute.DateTime;
@@ -915,7 +915,7 @@ export interface ApiScoreScore extends Schema.CollectionType {
     score4: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
     runner: Attribute.Relation<
       'api::score.score',
-      'oneToOne',
+      'manyToOne',
       'api::runner.runner'
     >;
     createdAt: Attribute.DateTime;
@@ -954,7 +954,7 @@ export interface ApiTiempoTiempo extends Schema.CollectionType {
     time4: Attribute.Float & Attribute.DefaultTo<0>;
     runner: Attribute.Relation<
       'api::tiempo.tiempo',
-      'oneToOne',
+      'manyToOne',
       'api::runner.runner'
     >;
     createdAt: Attribute.DateTime;

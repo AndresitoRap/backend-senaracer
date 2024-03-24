@@ -30,9 +30,9 @@
     },
     "runner": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "manyToOne",
       "target": "api::runner.runner",
-      "inversedBy": "tiempo"
+      "inversedBy": "tiempos"
     }
   }
 }
