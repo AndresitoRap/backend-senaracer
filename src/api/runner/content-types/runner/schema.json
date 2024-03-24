@@ -31,13 +31,15 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::score.score",
-      "mappedBy": "runner"
+      "mappedBy": "runner",
+      "cascade": true
     },
     "tiempo": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tiempo.tiempo",
-      "mappedBy": "runner"
+      "mappedBy": "runner",
+      "cascade": true
     }
   }
 }
