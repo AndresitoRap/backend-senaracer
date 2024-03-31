@@ -27,17 +27,29 @@
       "required": false,
       "unique": true
     },
-    "scores": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::score.score",
-      "mappedBy": "runner"
+    "score1": {
+      "type": "biginteger"
     },
-    "tiempos": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::tiempo.tiempo",
-      "mappedBy": "runner"
+    "score2": {
+      "type": "biginteger"
+    },
+    "score3": {
+      "type": "biginteger"
+    },
+    "score4": {
+      "type": "biginteger"
+    },
+    "time1": {
+      "type": "float"
+    },
+    "time2": {
+      "type": "float"
+    },
+    "time3": {
+      "type": "float"
+    },
+    "time4": {
+      "type": "float"
     }
   }
 }
