@@ -28,28 +28,36 @@
       "unique": true
     },
     "score1": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "default": "0"
     },
     "score2": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "default": "0"
     },
     "score3": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "default": "0"
     },
     "score4": {
-      "type": "biginteger"
+      "type": "biginteger",
+      "default": "0"
     },
     "time1": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     },
     "time2": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     },
     "time3": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     },
     "time4": {
-      "type": "float"
+      "type": "float",
+      "default": 0
     }
   }
 }
