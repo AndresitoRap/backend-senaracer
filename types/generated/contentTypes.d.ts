@@ -457,6 +457,8 @@ export interface ApiRunnerRunner extends Schema.CollectionType {
     time2: Attribute.Float & Attribute.DefaultTo<0>;
     time3: Attribute.Float & Attribute.DefaultTo<0>;
     time4: Attribute.Float & Attribute.DefaultTo<0>;
+    score5: Attribute.BigInteger & Attribute.DefaultTo<'0'>;
+    time5: Attribute.Float & Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -58,6 +58,14 @@
     "time4": {
       "type": "float",
       "default": 0
+    },
+    "score5": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "time5": {
+      "type": "float",
+      "default": 0
     }
   }
 }
