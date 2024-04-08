@@ -66,6 +66,14 @@
     "time5": {
       "type": "float",
       "default": 0
+    },
+    "totalScore": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "totalTime": {
+      "type": "float",
+      "default": 0
     }
   }
 }
